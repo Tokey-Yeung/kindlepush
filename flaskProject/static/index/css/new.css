@@ -1,0 +1,71 @@
+
+/*按钮*/
+.button1{
+    background: #2bb966;
+    top: 45px;
+}
+.button2{
+    background: #4ba8e8;
+    top: 93px;
+}
+
+.button1,
+.button2
+{   position: absolute;
+    right: 0;
+    display: inline-block;
+    width: 64px;
+    height: 32px;
+    border: none;
+    line-height: 32px;
+    margin-left: 10px;
+    color: #fff;
+    font-size: 15px;
+    text-align: center;
+    float: left;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: .3s ease;
+    -webkit-transition: .3s ease;
+    -moz-transition: .3s ease;
+    -ms-transition: .3s ease;
+    -o-transition: .3s ease;
+
+}
+.button1:hover {
+    background: #fdc500;
+}
+
+.button2:hover {
+    background: #fdc500;
+}
+
+
+button,
+input,
+select {
+    -webkit-appearance: none;
+    outline: none;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+button,
+.button1,
+select {
+    cursor: pointer;
+}
+.button1:hover,
+button:hover {
+    transition: 0.5s ease;
+    -webkit-transition: 0.5s ease;
+    -o-transition: 0.5s ease;
+    -ms-transition: 0.5s ease;
+    -moz-transition: 0.5s ease;
+}
+
+/*中间框*/
+.list_center {
+    border: 1px solid #D8D8D8;
+    border-top: none;
+    background: #fff;
+}

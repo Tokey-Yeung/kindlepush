@@ -1,0 +1,225 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Job Board</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- <link rel="manifest" href="site.webmanifest"> -->
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- CSS here -->
+    <link rel="stylesheet" href="static/result/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/result/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="static/result/css/magnific-popup.css">
+    <link rel="stylesheet" href="static/result/css/font-awesome.min.css">
+    <link rel="stylesheet" href="static/result/css/themify-icons.css">
+    <link rel="stylesheet" href="static/result/css/nice-select.css">
+    <link rel="stylesheet" href="static/result/css/flaticon.css">
+    <link rel="stylesheet" href="static/result/css/jquery-ui.css">
+    <link rel="stylesheet" href="static/result/css/gijgo.css">
+    <link rel="stylesheet" href="static/result/css/animate.min.css">
+    <link rel="stylesheet" href="static/result/css/slicknav.css">
+
+    <link rel="stylesheet" href="static/result/css/style.css">
+    <!-- <link rel="stylesheet" href="css/responsive.css"> -->
+</head>
+
+<body>
+    <!--[if lte IE 9]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+        <![endif]-->
+
+    <!-- header-start -->
+    <header> </header>
+    <!-- header-end -->
+
+    <!-- bradcam_area  -->
+    <div class="bradcam_area bradcam_bg_1">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="bradcam_text">
+                        <h3><a  href="/"><i class="fa fa-home"></i></a>   Kindle小说推送系统</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ bradcam_area  -->
+
+    <!-- job_listing_area_start  -->
+    <div class="job_listing_area plus_padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9">
+                    <div class="recent_joblist_wrap">
+                        <div class="recent_joblist white-bg ">
+                            <div class="row align-items-center">
+                                <div class="col-md-6">
+                                    <h4>{{keywords}} 搜索结果  共{{contents|length}}条</h4>
+                                </div>
+</div>
+                        </div>
+                    </div>
+
+                    <div class="job_lists m-0">
+                        <div class="row">
+                            {%for item in contents%}
+                            <div class="col-lg-12 col-md-12">
+                                <div class="single_jobs white-bg d-flex justify-content-between">
+                                    <div class="jobs_left d-flex align-items-center">
+                                        <div class="thumb">
+                                            <div><a href="https://www.caimoge.net/txt/{{item['bookid']}}.html">
+                                                <img class='book_pic' src="{{ item['pic_url'] }}" alt="{{item['bookname']}}"></a></div>
+                                        </div>
+                                        <div class="jobs_conetent">
+                                            <a href="https://www.caimoge.net/txt/{{item['bookid']}}.html" target="_blank"><h4>{{item['bookname']}}</h4></a>
+                                            <div class="book_other">作者：<span><a  href="javascript:doPost('/search', {'author':'{{item['book_author']}}','bookname':''})"> {{item['book_author']}}</a></span>  状态：<span>{{item['book_status']}}&nbsp;</span>分类：<span>{{item['booktype']}}</span>&nbsp;字数：<span>{{item['wordcounts']}}万</span></div>
+                                            <div class="book_other">最新章节：<a href="https://www.caimoge.net{{item['new_url']}}">{{item['new_char']}}</a></div>
+                                            <div class="book_other">简介：<span>{{item['book_des'][0:95]}}</span></div>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="jobs_right">
+                                        <div class="apply_now">
+                                            <a class="heart_mark" href="#"> <i class="fa fa-download"></i> </a>
+                                            <a class="boxed-btn3" onclick="doFormRequest('/push',action='post',json={'bookid':'{{item['bookid']}}','bookname':'{{item['bookname']}}','book_author':'{{item['book_author']}}','pic_id':'{{item['pic_id']}}'})"><i class="fa fa-paper-plane"></i> &nbsp;推送</a>
+                                        </div>
+                                        <div class="date">
+                                            <p>Updated Time:{{item['booktime'][0:-3]}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {%endfor%}
+                        </div>
+                        </div>
+</div>
+                </div>
+            </div>
+      </div>
+</div>
+<!-- job_listing_area_end  -->
+
+    <!-- footer start -->
+    <footer class="footer">
+        <div class="bradcam_area bradcam_bg_1">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="bradcam_text">
+                        <h3 align="center">Kindle小说推送系统</h3>
+                        <br><br>
+                        <p class="copy_right text-center">
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright ©<script>document.write(new Date().getFullYear());</script> All rights reserved TokeyYeung| This template is made with by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </footer>
+    <!--/ footer end  -->
+
+    <!-- link that opens popup -->
+    <!-- JS here -->
+    <script src="static/result/js/vendor/modernizr-3.5.0.min.js"></script>
+    <script src="static/result/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="static/result/js/popper.min.js"></script>
+    <script src="static/result/js/bootstrap.min.js"></script>
+    <script src="static/result/js/owl.carousel.min.js"></script>
+    <script src="static/result/js/isotope.pkgd.min.js"></script>
+    <script src="static/result/js/ajax-form.js"></script>
+    <script src="static/result/js/waypoints.min.js"></script>
+    <script src="static/result/js/jquery.counterup.min.js"></script>
+    <script src="static/result/js/imagesloaded.pkgd.min.js"></script>
+    <script src="static/result/js/scrollIt.js"></script>
+    <script src="static/result/js/jquery.scrollUp.min.js"></script>
+    <script src="static/result/js/wow.min.js"></script>
+    <script src="static/result/js/nice-select.min.js"></script>
+    <script src="static/result/js/jquery.slicknav.min.js"></script>
+    <script src="static/result/js/jquery.magnific-popup.min.js"></script>
+    <script src="static/result/js/plugins.js"></script>
+    <!-- <script src="js/gijgo.min.js"></script> -->
+    <script src="static/result/js/range.js"></script>
+
+
+
+    <!--contact js-->
+    <script src="static/result/js/contact.js"></script>
+    <script src="static/result/js/jquery.ajaxchimp.min.js"></script>
+    <script src="static/result/js/jquery.form.js"></script>
+    <script src="static/result/js/jquery.validate.min.js"></script>
+    <script src="static/result/js/mail-script.js"></script>
+    <script>/*
+    * @url: url link
+    * @action: "get", "post"
+    * @json: {'key1':'value2', 'key2':'value2'}
+    */
+    function doFormRequest(url, action, json)
+    {
+        var form = document.createElement("form");
+        form.action = url;
+        form.method = action;
+
+        // append input attribute and valus
+        for (var key in json)
+        {
+            if (json.hasOwnProperty(key))
+            {
+                var val = json[key];
+                input = document.createElement("input");
+                input.type = "hidden";
+                input.name = key;
+                input.value = val;
+
+                // append key-value to form
+                form.appendChild(input)
+            }
+        }
+
+        // send post request
+        document.body.appendChild(form);
+        form.submit();
+
+        // remove form from document
+        document.body.removeChild(form);
+        alert("推送请求已提交，请耐心等候！")
+    }
+    </script>
+
+    <script src="static/result/js/main.js"></script>
+
+
+	<script>
+            $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
+                " - $" + $( "#slider-range" ).slider( "values", 1 ) + "/ Year");
+        } );
+        </script>
+<script>
+function doPost(to, p) { // to:提交动作（action）,p:参数
+var myForm = document.createElement("form");
+myForm.method = "post";
+myForm.action = to;
+for (var i in p){
+var myInput = document.createElement("input");
+myInput.setAttribute("name", i); // 为input对象设置name
+myInput.setAttribute("value", p[i]); // 为input对象设置value
+myForm.appendChild(myInput);
+}
+document.body.appendChild(myForm);
+myForm.submit();
+document.body.removeChild(myForm); // 提交后移除创建的form
+}
+</script>
+</body>
+
+</html>
