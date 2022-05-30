@@ -1,0 +1,274 @@
+Skip to content
+Search or jump to…
+Pull requests
+Issues
+Marketplace
+Explore
+ 
+@Tokey-Yeung 
+Tokey-Yeung
+/
+ahutfake
+Private
+1
+00
+Code
+Issues
+Pull requests
+Actions
+Projects
+Security
+Insights
+Settings
+ahutfake/templates/fake.html
+@Tokey-Yeung
+Tokey-Yeung Update fake.html
+Latest commit 38462fb on 22 May
+ History
+ 1 contributor
+231 lines (211 sloc)  19.8 KB
+   
+<!DOCTYPE html>
+<!-- saved from url=(0037)http://yqfk.ahut.edu.cn/#/xsqj/detail -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="X-UA-Compatible" content="ie=edge"><title>安徽工业大学疫情防控平台</title><meta name="renderer" content="webkit"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><link rel="icon" href="http://yqfk.ahut.edu.cn/static/img/favicon.ico"><script src="{{url_for('static',filename='flexible.js.下载')}}"></script><style>html{font-size:110.5066650390625px;}</style><style>html,
+    body,
+    #app {
+      height: 100%;
+      margin: 0px;
+      padding: 0px;
+    }
+
+    .chromeframe {
+      margin: 0.2em 0;
+      background: #ccc;
+      color: #000;
+      padding: 0.2em 0;
+    }
+
+    #loader-wrapper {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 999999;
+    }
+
+    #loader {
+      display: block;
+      position: relative;
+      left: 50%;
+      top: 50%;
+      width: 150px;
+      height: 150px;
+      margin: -75px 0 0 -75px;
+      border-radius: 50%;
+      border: 3px solid transparent;
+      /* COLOR 1 */
+      border-top-color: #FFF;
+      -webkit-animation: spin 2s linear infinite;
+      /* Chrome, Opera 15+, Safari 5+ */
+      -ms-animation: spin 2s linear infinite;
+      /* Chrome, Opera 15+, Safari 5+ */
+      -moz-animation: spin 2s linear infinite;
+      /* Chrome, Opera 15+, Safari 5+ */
+      -o-animation: spin 2s linear infinite;
+      /* Chrome, Opera 15+, Safari 5+ */
+      animation: spin 2s linear infinite;
+      /* Chrome, Firefox 16+, IE 10+, Opera */
+      z-index: 1001;
+    }
+
+    #loader:before {
+      content: "";
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      right: 5px;
+      bottom: 5px;
+      border-radius: 50%;
+      border: 3px solid transparent;
+      /* COLOR 2 */
+      border-top-color: #FFF;
+      -webkit-animation: spin 3s linear infinite;
+      /* Chrome, Opera 15+, Safari 5+ */
+      -moz-animation: spin 3s linear infinite;
+      /* Chrome, Opera 15+, Safari 5+ */
+      -o-animation: spin 3s linear infinite;
+      /* Chrome, Opera 15+, Safari 5+ */
+      -ms-animation: spin 3s linear infinite;
+      /* Chrome, Opera 15+, Safari 5+ */
+      animation: spin 3s linear infinite;
+      /* Chrome, Firefox 16+, IE 10+, Opera */
+    }
+
+    #loader:after {
+      content: "";
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      right: 15px;
+      bottom: 15px;
+      border-radius: 50%;
+      border: 3px solid transparent;
+      border-top-color: #FFF;
+      /* COLOR 3 */
+      -moz-animation: spin 1.5s linear infinite;
+      /* Chrome, Opera 15+, Safari 5+ */
+      -o-animation: spin 1.5s linear infinite;
+      /* Chrome, Opera 15+, Safari 5+ */
+      -ms-animation: spin 1.5s linear infinite;
+      /* Chrome, Opera 15+, Safari 5+ */
+      -webkit-animation: spin 1.5s linear infinite;
+      /* Chrome, Opera 15+, Safari 5+ */
+      animation: spin 1.5s linear infinite;
+      /* Chrome, Firefox 16+, IE 10+, Opera */
+    }
+
+    @-webkit-keyframes spin {
+      0% {
+        -webkit-transform: rotate(0deg);
+        /* Chrome, Opera 15+, Safari 3.1+ */
+        -ms-transform: rotate(0deg);
+        /* IE 9 */
+        transform: rotate(0deg);
+        /* Firefox 16+, IE 10+, Opera */
+      }
+
+      100% {
+        -webkit-transform: rotate(360deg);
+        /* Chrome, Opera 15+, Safari 3.1+ */
+        -ms-transform: rotate(360deg);
+        /* IE 9 */
+        transform: rotate(360deg);
+        /* Firefox 16+, IE 10+, Opera */
+      }
+    }
+
+    @keyframes spin {
+      0% {
+        -webkit-transform: rotate(0deg);
+        /* Chrome, Opera 15+, Safari 3.1+ */
+        -ms-transform: rotate(0deg);
+        /* IE 9 */
+        transform: rotate(0deg);
+        /* Firefox 16+, IE 10+, Opera */
+      }
+
+      100% {
+        -webkit-transform: rotate(360deg);
+        /* Chrome, Opera 15+, Safari 3.1+ */
+        -ms-transform: rotate(360deg);
+        /* IE 9 */
+        transform: rotate(360deg);
+        /* Firefox 16+, IE 10+, Opera */
+      }
+    }
+
+    #loader-wrapper .loader-section {
+      position: fixed;
+      top: 0;
+      width: 51%;
+      height: 100%;
+      background: #3452ff;
+      /* Old browsers */
+      z-index: 1000;
+      -webkit-transform: translateX(0);
+      /* Chrome, Opera 15+, Safari 3.1+ */
+      -ms-transform: translateX(0);
+      /* IE 9 */
+      transform: translateX(0);
+      /* Firefox 16+, IE 10+, Opera */
+    }
+
+    #loader-wrapper .loader-section.section-left {
+      left: 0;
+    }
+
+    #loader-wrapper .loader-section.section-right {
+      right: 0;
+    }
+
+    /* Loaded */
+    .loaded #loader-wrapper .loader-section.section-left {
+      -webkit-transform: translateX(-100%);
+      /* Chrome, Opera 15+, Safari 3.1+ */
+      -ms-transform: translateX(-100%);
+      /* IE 9 */
+      transform: translateX(-100%);
+      /* Firefox 16+, IE 10+, Opera */
+      -webkit-transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+      transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+    }
+
+    .loaded #loader-wrapper .loader-section.section-right {
+      -webkit-transform: translateX(100%);
+      /* Chrome, Opera 15+, Safari 3.1+ */
+      -ms-transform: translateX(100%);
+      /* IE 9 */
+      transform: translateX(100%);
+      /* Firefox 16+, IE 10+, Opera */
+      -webkit-transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+      transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+    }
+
+    .loaded #loader {
+      opacity: 0;
+      -webkit-transition: all 0.3s ease-out;
+      transition: all 0.3s ease-out;
+    }
+
+    .loaded #loader-wrapper {
+      visibility: hidden;
+      -webkit-transform: translateY(-100%);
+      /* Chrome, Opera 15+, Safari 3.1+ */
+      -ms-transform: translateY(-100%);
+      /* IE 9 */
+      transform: translateY(-100%);
+      /* Firefox 16+, IE 10+, Opera */
+      -webkit-transition: all 0.3s 1s ease-out;
+      transition: all 0.3s 1s ease-out;
+    }
+
+    /* JavaScript Turned Off */
+    .no-js #loader-wrapper {
+      display: none;
+    }
+
+    .no-js h1 {
+      color: #222222;
+    }
+
+    #loader-wrapper .load_title {
+      font-family: 'Open Sans';
+      color: #FFF;
+      font-size: 19px;
+      width: 100%;
+      text-align: center;
+      z-index: 9999999999999;
+      position: absolute;
+      top: 60%;
+      opacity: 1;
+      line-height: 30px;
+    }
+
+    #loader-wrapper .load_title span {
+      font-weight: normal;
+      font-style: italic;
+      font-size: 13px;
+      color: #FFF;
+      opacity: 0.5;
+    }</style><link href="http://yqfk.ahut.edu.cn/chunk-010ed710.js?v=V1.13.0.0404" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/chunk-016b3c9f.js?v=V1.13.0.0404" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/chunk-05f46889.js?v=V1.13.0.0404" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/chunk-1151eae6.js?v=V1.13.0.0404" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/chunk-15a6072e.js?v=V1.13.0.0404" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/chunk-16626b1a.js?v=V1.13.0.0404" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/chunk-1c805ddb.js?v=V1.13.0.0404" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/chunk-20ecff28.js?v=V1.13.0.0404" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/chunk-22ceb24f.js?v=V1.13.0.0404" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/chunk-26578e05.js?v=V1.13.0.0404" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/chunk-2735ced7.js?v=V1.13.0.0404" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/chunk-2b4c706a.js?v=V1.13.0.0404" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/chunk-2be328dd.js?v=V1.13.0.0404" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/chunk-2d0ae526.js?v=V1.13.0.0404" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/chunk-2d0ae5b6.js?v=V1.13.0.0404" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/chunk-2d0be0ba.js?v=V1.13.0.0404" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/chunk-2d0be661.js?v=V1.13.0.0404" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/chunk-2d0e2760.js?v=V1.13.0.0404" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/chunk-2d0e2911.js?v=V1.13.0.0404" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/chunk-2d225b4e.js?v=V1.13.0.0404" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/chunk-2e6c7e16.js?v=V1.13.0.0404" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/chunk-39e74027.js?v=V1.13.0.0404" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/chunk-414db85e.js?v=V1.13.0.0404" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/chunk-4472eada.js?v=V1.13.0.0404" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/chunk-470a9f23.js?v=V1.13.0.0404" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/chunk-489821fc.js?v=V1.13.0.0404" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/chunk-4a79ebe8.js?v=V1.13.0.0404" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/chunk-4efd3c5c.js?v=V1.13.0.0404" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/chunk-4fa3bcec.js?v=V1.13.0.0404" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/chunk-50db1ed7.js?v=V1.13.0.0404" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/chunk-53732d34.js?v=V1.13.0.0404" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/chunk-5464c524.js?v=V1.13.0.0404" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/chunk-59e92ade.js?v=V1.13.0.0404" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/chunk-5e25e100.js?v=V1.13.0.0404" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/chunk-5ed0c421.js?v=V1.13.0.0404" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/chunk-65fe880c.js?v=V1.13.0.0404" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/chunk-737247ca.js?v=V1.13.0.0404" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/chunk-75cc41ba.js?v=V1.13.0.0404" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/chunk-762c1473.js?v=V1.13.0.0404" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/chunk-7a8d11a3.js?v=V1.13.0.0404" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/chunk-838e4fe8.js?v=V1.13.0.0404" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/chunk-841e53f4.js?v=V1.13.0.0404" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/chunk-848cd56a.js?v=V1.13.0.0404" rel="prefetch"><link href="{{url_for('static',filename='chunk-8af61276.js.下载')}}" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/chunk-a38f978e.js?v=V1.13.0.0404" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/chunk-a965a036.js?v=V1.13.0.0404" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/chunk-ac81d828.js?v=V1.13.0.0404" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/chunk-ae87340c.js?v=V1.13.0.0404" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/chunk-bbe2f892.js?v=V1.13.0.0404" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/chunk-e8899d7c.js?v=V1.13.0.0404" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/chunk-effde85e.js?v=V1.13.0.0404" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/css/chunk-010ed710.16ee16e4.css" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/css/chunk-016b3c9f.b1361574.css" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/css/chunk-05f46889.f4def688.css" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/css/chunk-1151eae6.7dea6ebe.css" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/css/chunk-15a6072e.c1223eee.css" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/css/chunk-16626b1a.1b37831f.css" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/css/chunk-1c805ddb.f4def688.css" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/css/chunk-20ecff28.7dea6ebe.css" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/css/chunk-22ceb24f.b1361574.css" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/css/chunk-26578e05.b1361574.css" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/css/chunk-2735ced7.b1361574.css" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/css/chunk-2b4c706a.7947e26c.css" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/css/chunk-2be328dd.b1361574.css" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/css/chunk-2e6c7e16.f4def688.css" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/css/chunk-39e74027.ef923263.css" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/css/chunk-414db85e.646f657d.css" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/css/chunk-4472eada.0c210481.css" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/css/chunk-470a9f23.f4def688.css" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/css/chunk-489821fc.ef923263.css" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/css/chunk-4a79ebe8.f1e41237.css" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/css/chunk-4efd3c5c.ef923263.css" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/css/chunk-4fa3bcec.63d5c1d5.css" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/css/chunk-50db1ed7.b1361574.css" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/css/chunk-53732d34.b1361574.css" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/css/chunk-5464c524.309041bb.css" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/css/chunk-59e92ade.f4def688.css" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/css/chunk-5e25e100.287c6587.css" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/css/chunk-5ed0c421.ef923263.css" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/css/chunk-65fe880c.4cb07ecb.css" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/css/chunk-737247ca.03604455.css" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/css/chunk-75cc41ba.ef923263.css" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/css/chunk-762c1473.a4404498.css" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/css/chunk-7a8d11a3.6025cc92.css" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/css/chunk-838e4fe8.f4def688.css" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/css/chunk-841e53f4.6802cb07.css" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/css/chunk-848cd56a.93fcf361.css" rel="prefetch"><link href="{{url_for('static',filename='chunk-8af61276.a1b12da1.css')}}" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/css/chunk-a38f978e.7dea6ebe.css" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/css/chunk-a965a036.5739ae00.css" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/css/chunk-ac81d828.4579bc02.css" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/css/chunk-ae87340c.6de475b2.css" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/css/chunk-bbe2f892.4d02adbf.css" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/css/chunk-e8899d7c.ef923263.css" rel="prefetch"><link href="http://yqfk.ahut.edu.cn/css/chunk-effde85e.7dea6ebe.css" rel="prefetch"><link href="{{url_for('static',filename='app.js.下载')}}" rel="preload" as="script"><link href="{{url_for('static',filename='chunk-vendors.js.下载')}}" rel="preload" as="script"><link href="{{url_for('static',filename='app.caea83ea.css')}}" rel="preload" as="style"><link href="{{url_for('static',filename='chunk-vendors.a5d1b683.css')}}" rel="preload" as="style"><link href="{{url_for('static',filename='chunk-vendors.a5d1b683.css')}}" rel="stylesheet"><link href="{{url_for('static',filename='app.caea83ea.css')}}" rel="stylesheet"><link rel="stylesheet" type="text/css" href="{{url_for('static',filename='chunk-8af61276.a1b12da1.css')}}"><script charset="utf-8" src="{{url_for('static',filename='chunk-8af61276.js.下载')}}"></script></head><body style="font-size: 16px;" class=""><div data-v-ebe9d704="" class="leaveSp"><div data-v-5ead537e="" data-v-ebe9d704="" class="sub-header"><div data-v-5ead537e="" class="back"></div><div data-v-5ead537e="" class="title">外出详情</div><div data-v-5ead537e="" class="right-btn hide"></div></div><article data-v-ebe9d704=""><nav data-v-ebe9d704="" style="width: 100%; position: fixed; top: 0.5rem;"><header data-v-ebe9d704=""><p data-v-ebe9d704=""><span data-v-ebe9d704="">{{name}}<span data-v-ebe9d704="" style="margin-left: 0.1rem;">({{student_code}})</span></span></p><p data-v-ebe9d704=""><span data-v-ebe9d704="">计算机科学学院</span></p></header></nav><section data-v-ebe9d704=""><aside data-v-ebe9d704="" class="record" style="float: right;"><span data-v-ebe9d704="" class="el-tag el-tag--success el-tag--light">近14天打卡记录</span></aside><div data-v-ebe9d704=""><span data-v-ebe9d704="">联系方式</span><p data-v-ebe9d704="">{{phone}}</p></div><div data-v-ebe9d704=""><span data-v-ebe9d704="">外出时间</span><p data-v-ebe9d704="">{{start_time}} 00:00:00</p></div><div data-v-ebe9d704=""><span data-v-ebe9d704="">返校时间</span><p data-v-ebe9d704="">{{end_time}} 00:00:00</p></div><div data-v-ebe9d704=""><span data-v-ebe9d704="">外出地址</span><p data-v-ebe9d704="">安徽-马鞍山市-雨山区-体育路</p></div><div data-v-ebe9d704=""><span data-v-ebe9d704="">外出原因</span><p data-v-ebe9d704="">外出有事</p></div><div data-v-ebe9d704=""><span data-v-ebe9d704="">申请时间</span><p data-v-ebe9d704="">{{ok_time}}</p></div><div data-v-ebe9d704=""><span data-v-ebe9d704="">审批状态</span><p data-v-ebe9d704="" style="color: rgb(103, 194, 58);"> 审核通过 </p></div><!----><div data-v-ebe9d704=""><span data-v-ebe9d704="">审批人</span><p data-v-ebe9d704="">{{name2}}</p></div><div data-v-ebe9d704=""><span data-v-ebe9d704="">审批时间</span><p data-v-ebe9d704="">{{ok_time}} 10:31:52</p></div><!----><!----></section><div data-v-ebe9d704="" class="btnWrap"><!----><!----></div></article><div data-v-ebe9d704=""><div class="el-dialog__wrapper" style="display: none;"><div role="dialog" aria-modal="true" aria-label="dialog" class="el-dialog myDialog" style="margin-top: 30vh; width: 70%;"><div class="el-dialog__header"><i class="el-icon-warning-outline"></i>提示 <!----></div><!----><div class="el-dialog__footer"><span class="dialog-footer"><button type="button" class="el-button el-button--default"><!----><!----><span>取 消</span></button><button type="button" class="el-button el-button--default"><!----><!----><span>确 定</span></button></span></div></div></div></div><div data-v-ebe9d704=""><div class="el-dialog__wrapper" style="display: none;"><div role="dialog" aria-modal="true" aria-label="dialog" class="el-dialog myDialog" style="margin-top: 30vh; width: 70%;"><div class="el-dialog__header"><i class="el-icon-warning-outline"></i>提示 <!----></div><!----><div class="el-dialog__footer"><span class="dialog-footer"><button type="button" class="el-button el-button--default"><!----><!----><span>取 消</span></button><button type="button" class="el-button el-button--default"><!----><!----><span>确 定</span></button></span></div></div></div></div><div data-v-ebe9d704=""><div class="el-dialog__wrapper" style="display: none;"><div role="dialog" aria-modal="true" aria-label="dialog" class="el-dialog myDialog" style="margin-top: 30vh; width: 70%;"><div class="el-dialog__header"><i class="el-icon-warning-outline"></i>提示 <!----></div><!----><div class="el-dialog__footer"><span class="dialog-footer"><button type="button" class="el-button el-button--default"><!----><!----><span>取 消</span></button><button type="button" class="el-button el-button--default"><!----><!----><span>确 定</span></button></span></div></div></div></div><div data-v-ebe9d704="" class="el-dialog__wrapper" style="display: none;"><div role="dialog" aria-modal="true" aria-label="审批不通过" class="el-dialog myDialog" style="margin-top: 15vh; width: 80%;"><div class="el-dialog__header"><span class="el-dialog__title">审批不通过</span><button type="button" aria-label="Close" class="el-dialog__headerbtn"><i class="el-dialog__close el-icon el-icon-close"></i></button></div><!----><div class="el-dialog__footer"><div data-v-ebe9d704="" class="dialog-footer"><button data-v-ebe9d704="" type="button" class="el-button el-button--default"><!----><!----><span>取 消</span></button><button data-v-ebe9d704="" type="button" class="el-button el-button--primary"><!----><!----><span>确 定</span></button></div></div></div></div></div><script src="{{url_for('static',filename='chunk-vendors.js.下载')}}"></script><script src="{{url_for('static',filename='app.js.下载')}}"></script></body></html>
+© 2021 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
+Loading complete
