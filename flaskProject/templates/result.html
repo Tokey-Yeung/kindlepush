@@ -1,12 +1,12 @@
 <!doctype html>
-<html class="no-js" lang="zxx">
+<html class="no-js" lang="zh">
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Job Board</title>
+    <title>搜索结果</title>
     <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=1100, initial-scale=1, minimum-scale=0.3, maximum-scale=2.0, user-scalable=yes">
 
     <!-- <link rel="manifest" href="site.webmanifest"> -->
     <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
@@ -61,7 +61,7 @@
                         <div class="recent_joblist white-bg ">
                             <div class="row align-items-center">
                                 <div class="col-md-6">
-                                    <h4>{{keywords}} 搜索结果  共{{contents|length}}条</h4>
+                                    <h4>{{keywords}} 在{{ source }}中搜索结果  共{{contents|length}}条</h4>
                                 </div>
 </div>
                         </div>
@@ -74,24 +74,24 @@
                                 <div class="single_jobs white-bg d-flex justify-content-between">
                                     <div class="jobs_left d-flex align-items-center">
                                         <div class="thumb">
-                                            <div><a href="https://www.caimoge.net/txt/{{item['bookid']}}.html">
-                                                <img class='book_pic' src="{{ item['pic_url'] }}" alt="{{item['bookname']}}"></a></div>
+                                            <div><a href="{{item['bookUrl']}}">
+                                                <img class='book_pic' src="{{ item['coverUrl'] }}" alt="{{item['bookname']}}"></a></div>
                                         </div>
                                         <div class="jobs_conetent">
-                                            <a href="https://www.caimoge.net/txt/{{item['bookid']}}.html" target="_blank"><h4>{{item['bookname']}}</h4></a>
-                                            <div class="book_other">作者：<span><a  href="javascript:doPost('/search', {'author':'{{item['book_author']}}','bookname':''})"> {{item['book_author']}}</a></span>  状态：<span>{{item['book_status']}}&nbsp;</span>分类：<span>{{item['booktype']}}</span>&nbsp;字数：<span>{{item['wordcounts']}}万</span></div>
-                                            <div class="book_other">最新章节：<a href="https://www.caimoge.net{{item['new_url']}}">{{item['new_char']}}</a></div>
-                                            <div class="book_other">简介：<span>{{item['book_des'][0:95]}}</span></div>
+                                            <a href="{{item['bookUrl']}}" target="_blank"><h4>{{item['bookname']}}</h4></a>
+                                            <div class="book_other">作者：<span><a  href="javascript:doPost('/search', {'author':'{{item['author']}}','bookname':'',{% if source=='采墨阁' %}'approach':'way1'{% elif source=='奇书网' %}'approach':'way2'{% endif %}})"> {{item['author']}}</a></span>  状态：<span>{{item['bookstatus']}}&nbsp;</span>分类：<span>{{item['booktype']}}</span>&nbsp;字数(大小)：<span>{{item['wordCount']}}</span></div>
+                                            <div class="book_other">最新章节：<a href="{{item['lastChapterUrl']}}" target="_blank">{{item['lastChapter']}}</a></div>
+                                            <div class="book_other">简介：<span>{{item['intro'][0:95]}}</span></div>
                                             
                                         </div>
                                     </div>
                                     <div class="jobs_right">
                                         <div class="apply_now">
                                             <a class="heart_mark" href="#"> <i class="fa fa-download"></i> </a>
-                                            <a class="boxed-btn3" onclick="doFormRequest('/push',action='post',json={'bookid':'{{item['bookid']}}','bookname':'{{item['bookname']}}','book_author':'{{item['book_author']}}','pic_id':'{{item['pic_id']}}'})"><i class="fa fa-paper-plane"></i> &nbsp;推送</a>
+                                            <a class="boxed-btn3" onclick="doFormRequest('/push',action='post',json={'bookname':'{{item['bookname']}}','book_author':'{{item['book_author']}}','downUrl:'{{item['downUrl']}}'})"><i class="fa fa-paper-plane"></i> &nbsp;推送</a>
                                         </div>
                                         <div class="date">
-                                            <p>Updated Time:{{item['booktime'][0:-3]}}</p>
+                                            <p>Updated Time:{{item['booktime']}}</p>
                                         </div>
                                     </div>
                                 </div>
