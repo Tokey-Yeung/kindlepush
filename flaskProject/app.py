@@ -34,6 +34,19 @@ def craw(way,keywords):         #根据选择的书源来源不同来选择从�
         source='奇书网'
     return content,res_html,source
 
+def downbook(bookname,url):         #下载书籍
+    #从url中下载，并保存为bookname.txt,储存在当前目录的Book文件夹下
+    try:
+        r = requests.get(url)
+        with open(bookname + '.txt', 'wb') as f:
+            f.write(r.content)
+            f.close()
+        msg='源文件下载成功'
+    except:
+        msg='源文件下载失败'
+    return msg
+
+
 
 
 @app.route('/')             #主页路由
@@ -57,7 +70,14 @@ def postdata():
     contents,res_html,source=craw(way=result['approach'],keywords=keywords)
     return render_template(res_html,**locals())
 
-
+@app.route("/push",methods=['POST'])              #搜索请求
+def pushbook():
+    pushdata = request.form         #解析post过来的需要推送的书籍信息
+    downmsg=downbook(pushdata['bookname'],pushdata['downUrl'])
+    if downmsg=='源文件下载成功':
+        return '推送成功'
+    else:
+        return '推送失败'
 
 
 if __name__ == '__main__':
